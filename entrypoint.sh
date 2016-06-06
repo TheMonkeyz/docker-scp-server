@@ -12,7 +12,8 @@ chown data:data /home/data
 if [ ! -z $SCP_USER ];
 then
   chown $SCP_USER /authorized_keys
-  usermod --shell=/usr/bin/rssh 
+  chown $SCP_USER ~$SCP_USER
+  usermod --shell=/usr/bin/rssh $SCP_USER 
 fi
 
 # Run sshd on container start
