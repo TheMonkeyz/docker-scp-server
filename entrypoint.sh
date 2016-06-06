@@ -9,7 +9,7 @@ echo $AUTHORIZED_KEYS | base64 -d >>$AUTHORIZED_KEYS_FILE
 # Chown data folder (if mounted as a volume for the first time)
 chown data:data /home/data
 
-if [ -z $SCP_USER ];
+if [ ! -z $SCP_USER ];
 then
   chown $SCP_USER /authorized_keys
   usermod --shell /usr/bin/rssh 
